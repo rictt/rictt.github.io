@@ -6,6 +6,7 @@
   ### [react](/react/)
   ### [webpack](/webpack/)
   ### [chrome插件](/chrome-extension//)
+  ### [杂七杂八](/other/)
 
 ## Todo
   ### 浏览器插件开发实战
