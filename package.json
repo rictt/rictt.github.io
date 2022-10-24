@@ -1,0 +1,14 @@
+{
+  "name": "t-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "axios": "^1.1.3",
+    "vuepress": "^1.9.7"
+  },
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  }
+}
