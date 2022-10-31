@@ -5,7 +5,7 @@
   ### [vue](/vue/)
   ### [react](/react/)
   ### [webpack](/webpack/)
-  ### [chrome插件](/chrome-extension//)
+  ### [chrome插件](/chrome-extension/)
   ### [杂七杂八](/other/)
 
 ## Todo
