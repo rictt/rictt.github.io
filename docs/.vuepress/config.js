@@ -9,6 +9,13 @@ module.exports = {
     sidebar: 'auto',
     lastUpdated: 'Last Updated'
   },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@': '/'
+      }
+    }
+  },
   devServer: {
     proxy: {
       
