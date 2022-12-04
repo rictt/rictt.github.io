@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加速运动分解与合成</title>
+  <style>
+    #canvas {
+      border: 1px dashed #aaa;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="1200" height="600"></canvas>
+  
+  <script src="./ball.js"></script>
+  <script>
+    window.onload = () => {
+      const oCanvas = document.querySelector('#canvas')
+      const oGc = oCanvas.getContext('2d')
+      const width = oCanvas.width
+      const height = oCanvas.height
+      const ball = new Ball(0, 0)
+      let a = 0.3,
+          ax = a * Math.cos(25 * Math.PI / 180),
+          ay = a * Math.sin(25 * Math.PI / 180),
+          vx = 0,
+          vy = 0;
+
+      (function linear() {
+        oGc.clearRect(0, 0, width, height)
+        ball.fill(oGc)
+        ball.x += vx
+        ball.y += vy
+        vx += ax
+        vy += ay
+        requestAnimationFrame(linear)
+      })()
+    }
+  </script>
+</body>
+</html>

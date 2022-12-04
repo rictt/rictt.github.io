@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>重力弹跳</title>
+  <style>
+    #canvas {
+      border: 1px dashed #aaa;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="1200" height="600"></canvas>
+  
+  <script src="./ball.js"></script>
+  <script>
+    window.onload = () => {
+      const oCanvas = document.querySelector('#canvas')
+      const oGc = oCanvas.getContext('2d')
+      const width = oCanvas.width
+      const height = oCanvas.height
+      const ball = new Ball(width / 2, 0)
+      let vy = 0,
+          gravity = 0.2,
+          bounce = -0.8
+
+      ;(function linear() {
+        oGc.clearRect(0, 0, width, height)
+        ball.fill(oGc)
+        ball.y += vy
+        if (ball.y > canvas.height - ball.radius) {
+          ball.y = canvas.height - ball.radius
+          vy = vy * bounce
+        }
+        vy += gravity
+        requestAnimationFrame(linear)
+      })()
+    }
+  </script>
+</body>
+</html>

@@ -2,9 +2,15 @@
 
 ## 宠物小程序需求输出
 
+  欢迎扫码体验，这是一个猫咪领养小程序。主要功能是：通过用户在线填写猫咪信息，其他用户通过搜索查找到心仪的猫咪，完善个人领养信息后，进行猫咪领养，领养前需要先查看是否符合领养要求，比如是否同城，已封窗等等；确认无误后，进行申请，确认无误后可以获得相关联系方式；
 ### 业务逻辑
+
   - [墨刀原型](https://modao.cc/app/design/pbl9nu883xcydvw0)
   - [项目地址](https://github.com/rictt/cat-adoption)
+
+### 项目展示
+  ![xx](./cat-show.jpeg)
+  ![xx](./cat-logo.png)
 ### 模块一：首页
 - 进来首页，首先根据用户定位的城市，优先展示所在城市的领养列表，如果数据为空，则默认展示全国；
 - 用户可以自定义筛选城市，获取不同的领养列表
@@ -142,3 +148,7 @@
   ### 2、css背景图片
   微信小程序不支持css中背景图片引用本地资源，比如`background-image: url('./images/test.png')`，这样子是会失败的，需要手动把图片转成base64或者链接的形式引入
   - [在线转成base64](https://c.runoob.com/front-end/59/)
+
+  ### 3、获取用户昵称和头像
+  - [规则调整](https://developers.weixin.qq.com/community/develop/doc/00022c683e8a80b29bed2142b56c01)
+  - [demo](https://blog.csdn.net/qq_46068864/article/details/122895337)

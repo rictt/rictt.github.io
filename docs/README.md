@@ -6,6 +6,7 @@
   ### [react](/react/)
   ### [webpack](/webpack/)
   ### [chrome插件](/chrome-extension/)
+  ### [canvas](/canvas/)
   ### [杂七杂八](/other/)
 
 ## Todo

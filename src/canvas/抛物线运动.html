@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>抛物线运动</title>
+  <style>
+    #canvas {
+      border: 1px dashed #aaa;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="1200" height="600"></canvas>
+  
+  <script src="./ball.js"></script>
+  <script>
+    window.onload = () => {
+      const oCanvas = document.querySelector('#canvas')
+      const oGc = oCanvas.getContext('2d')
+      const width = oCanvas.width
+      const height = oCanvas.height
+      const ball = new Ball(0, height / 2)
+      let vx = 2,
+          vy = -10,
+          gravity = 0.2;
+
+      (function linear() {
+        oGc.clearRect(0, 0, width, height)
+        ball.fill(oGc)
+        ball.x += vx
+        ball.y += vy
+        vy += gravity
+        if (ball.y >= height / 2) {
+          ball.y = height / 2
+          vy = -10
+        }
+        requestAnimationFrame(linear)
+      })()
+    }
+  </script>
+</body>
+</html>
