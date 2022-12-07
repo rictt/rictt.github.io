@@ -3,3 +3,4 @@ docs/.vuepress/dist
 yarn-error.log
 .DS_Store
 sidebar.json
+dist
