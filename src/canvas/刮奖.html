@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .canvas-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .canvas-prize {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #canvas {
+      position: relative;
+      z-index: 10;
+      /* 可以试下不用windowPositionToCanvasPosition的情况 */
+      /* margin: 300px 200px; */
+      border: 1px solid #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas-wrapper">
+    <canvas id="canvas"></canvas>
+    <img class="canvas-prize" src="./images/prize.png" alt="">
+  </div>
+  <script>
+    const canvas = document.querySelector('#canvas')
+    const ctx = canvas.getContext('2d')
+    const width = 500
+    const height = 500
+    document.body.appendChild(canvas2)
+
+    const state = {
+      touched: false,
+      // 画笔半径
+      brushRadius: 20,
+      data1: null,
+      data2: null
+    }
+
+    canvas.width = width
+    canvas.height = height
+    canvas.style.width = width
+    canvas.style.height = height
+
+    const loadImage = (src) => {
+      return new Promise((resolve, reject) => {
+        const image = new Image()
+        image.onload = () => {
+          resolve(image)
+        }
+        image.onerror = () => {
+          reject()
+        }
+        image.src = src
+      })
+    }
+
+    const drawPrizeImg = async () => {
+      const image = await loadImage('./images/prize.png')
+      ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
+    }
+    const drawMask = async () => {
+      const image = await loadImage('./images/mask.png')
+      ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
+    }
+
+    const mousedown = (event) => {
+      state.touched = true
+    }
+    const windowPositionToCanvasPosition = (canvasX, canvasY, el) => {
+      const rect = el.getBoundingClientRect()
+      const { left, top } = rect
+      return {
+        x: canvasX - left,
+        y: canvasY - top
+      }
+    }
+    const mousemove = (event) => {
+      if (!state.touched) return
+      const { clientX, clientY } = event
+      // 要把window的位置坐标转换成canvas的坐标，不然在canvas不是0.0的情况下会出现计算偏移
+      const { x, y } = windowPositionToCanvasPosition(clientX, clientY, canvas)
+      ctx.save()
+      ctx.fillStyle = 'rgba(238, 238, 238, .5)'
+      ctx.globalCompositeOperation = 'destination-out'
+      ctx.beginPath(x, y)
+      ctx.arc(x, y, state.brushRadius, 0, Math.PI * 2)
+      ctx.closePath()
+      ctx.fill()
+      ctx.restore()
+    }
+    const mouseup = (event) => {
+      state.touched = false
+    }
+
+    canvas.addEventListener('mousedown', mousedown)
+    canvas.addEventListener('mousemove', mousemove)
+    canvas.addEventListener('mouseup', mouseup)
+
+    const draw = async () => {
+      await drawPrizeImg()
+      await drawMask()
+    }
+
+    draw()
+  </script>
+</body>
+</html>
