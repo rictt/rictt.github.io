@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertical-Align</title>
+  <style>
+    * { margin: 0; padding: 0 };
+    div, p, h1, ul, li, ol { box-sizing: border-box; }
+
+    .box {
+      padding: 10px;
+      border: 1px solid #666;
+      margin-bottom: 10px;
+    }
+    .square {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      border: 1px solid red;
+    }
+    .square-200 {
+      width: 200px;
+      height: 200px;
+    }
+    .top-align {
+      vertical-align: top;
+    }
+    .span {
+      border: 1px solid skyblue;
+      padding: 4px;
+    }
+    .square-hidden {
+      overflow: hidden;
+    }
+    .square-middle {
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    /**
+     * 尝试结论一下
+     * vertical-align的对齐方式
+     */
+  </script>
+  <!-- 情况1，空节点的baseline -->
+  <div class="box">
+    <div class="square"></div>
+    <div class="square square-200"></div>
+  </div>
+
+  <!-- 情况2，有内容元素并且为overflow：visible的情况 -->
+
+  <div class="box">
+    <div class="square"></div>
+    <div class="square"><span>span</span></div>
+    <div class="square">超过两行的span</div>
+    <div class="square">超过三行的span超过三行的span</div>
+  </div>
+
+  <!-- 情况3，有内容元素并且为overflow：hidden的情况 -->
+  <div class="box">
+    <div class="square"></div>
+    <div class="square"><span>span</span></div>
+    <div class="square">超过两行的span</div>
+    <div class="square square-hidden">hidden的wrapper</div>
+  </div>
+ 
+
+  <div class="box box3">
+    <div class="square" style="vertical-align: top;"><span>top align</span></div>
+    <div class="square square-middle" style="vertical-align: middle;"><span>middle align</span></div>
+  </div>
+
+  <div class="box">
+    <div class="square" style="vertical-align: middle;">middle</div>
+    <div class="square">baseline</div>
+    <!-- <div class="square" style="vertical-align: top;">top</div> -->
+    <!-- <div class="square" style="vertical-align: bottom;">bottom</div> -->
+    <!-- <div class="square" style="vertical-align: text-top;">text-top</div> -->
+    <!-- <div class="square" style="vertical-align: text-bottom;">text-bottom</div> -->
+    <!-- <div class="square"></div> -->
+  </div>
+</body>
+</html>
