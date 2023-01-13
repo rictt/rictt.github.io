@@ -22,16 +22,14 @@ export default {
 }
 </script>
 <style>
-body, html {
-  background-color: #f5f5d5;
-}
-a {
+
+</style>
+<style lang="stylus" scoped>
+>>> a {
   color: #1e80ff;
   cursor: pointer;
   text-decoration: underline;
 }
-</style>
-<style lang="stylus" scoped>
 .resume-wrap {
   max-width: 800px;
   margin: 40px auto;
