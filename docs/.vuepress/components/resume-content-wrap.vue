@@ -79,7 +79,20 @@ export default {
 
   .paragraph {
     line-height: 2;
+
+    strong {
+      font-size: 16pt;
+    }
   }
+  .image-list {
+    display: flex;
+
+    &.horizontal {
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  
 
   .image-tips {
     text-align: center;  
