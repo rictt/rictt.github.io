@@ -67,7 +67,7 @@
       <img class="image" src="./images/boss-cms.png" alt="">
       <p class="pragraph">这是一个业务外卖管理系统，主要是外卖管理配送、客户中心、营销工具的开发维护；上图是其中一个模块：App配置模块，<strong>可以通过对App某个页面进行配置，根据参数动态展示不同的卡片，根据不同的地区/节日投放不同的模板等等</strong></p>
       <p class="pragraph"><strong>主要技术：</strong>Vue2 + iview4 + vuex + xlsx等</p>
-      <p>在职期间主要做了：</p>
+      <p><strong>在职期间主要做了：</strong></p>
       <ul>
         <li>依赖调整：删减了无用的库，UI组件统一，从三个（ele、iview、material），削减成iview主力 + 部分element组件，并且升级过渡iview3到iview4</li>
         <li>表格类页面代码高度重复，封装了一个VTable组件，集齐数据展示 + 条件查询 + 前端导出功能，大大减少了重复代码；</li>
@@ -84,16 +84,15 @@
       </div>
       <p class="pragraph">这是一个多页的H5营销项目，主要负责公司业务H5的开发与维护，包括话费充值、抽奖转盘、公共登陆页、下载落地页等</p>
       <p class="pragraph"><strong>主要技术：</strong>Vue2 + vant + egg等</p>
-      <p>在职期间主要做了：</p>
+      <p><strong>在职期间主要做了：</strong></p>
       <ul>
-        <li>封装了与原生交互的sdk，参照了微信的sdk设计，分success、fail等；统一了在容器内 + 浏览器端的请求表现</li>
+        <li>封装了与原生交互的sdk，参照了微信的sdk设计，分success、fail等；统一容器内 + 浏览器端的请求表现</li>
         <li>封装了统一拉起App的逻辑，主要是针对主流平台的处理兼容，比如浏览器，微信内，facebook等</li>
         <li>H5播放器自定义播放样式，包括播放条，操作按钮等</li>
         <li>营销图片多，加载体验差，封装了image加载组件，营销场景下渐进加载图片，用户体验好</li>
         <li>业务埋点代码重复，封装了统一的工具库，支持api、指令方式调用，也支持异步非堵塞上传等</li>
         <li>egg渲染层注入一些全局或者业务数据，减少了渲染时间</li>
-        <li>配置webpack打包多页面，入口分离，抽离公共包；将每个页面进行分离，有效缓存
-公共包，减少白屏时间</li>
+        <li>配置webpack打包多页面，入口分离，抽离公共包；将每个页面进行分离，有效缓存公共包，减少白屏时间</li>
       </ul>
     </ResumeContentWrap>
 

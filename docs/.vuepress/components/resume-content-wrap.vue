@@ -84,6 +84,9 @@ export default {
       font-size: 16pt;
     }
   }
+  strong {
+    font-size: 15pt;
+  }
   .image-list {
     display: flex;
 
