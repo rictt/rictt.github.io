@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <ResumtContentWrap title="基本介绍">
+    <ResumeContentWrap title="基本介绍">
       <p class="paragraph"><strong>三年多前端经验，</strong>主要是负责web多端的系统开发，<strong>ToC、ToB产品都做过；</strong>工作期间认真负责，保障功能需求如期上线；除此之外，也有接触Electron、Puppetter、浏览器插件需求的开发，但只是能够满足需求的地方；</p>
       <p class="paragraph"><strong>基本技能</strong></p>
       <ul>
@@ -33,10 +33,10 @@
         <li>写过一些Nodejs脚本，比如项目批量国际化，读取协议文本、设置代理等</li>
         <li>英语能力四级，简单读写</li>
       </ul>
-    </ResumtContentWrap>
+    </ResumeContentWrap>
 
 
-    <ResumtContentWrap title="公司经历">
+    <ResumeContentWrap title="公司经历">
       <ul>
         <li>
           <div class="box-header">
@@ -61,23 +61,23 @@
         </li>
 
       </ul>
-    </ResumtContentWrap>
+    </ResumeContentWrap>
 
-    <ResumtContentWrap title="项目经历：外卖管理系统" right-text="2020年12月~至今" >
+    <ResumeContentWrap title="项目经历：外卖管理系统" right-text="2020年12月~至今" >
       <img class="image" src="./images/boss-cms.png" alt="">
       <p class="pragraph">这是一个业务外卖管理系统，主要是外卖管理配送、客户中心、营销工具的开发维护；上图是其中一个模块：App配置模块，<strong>可以通过对App某个页面进行配置，根据参数动态展示不同的卡片，根据不同的地区/节日投放不同的模板等等</strong></p>
       <p class="pragraph"><strong>主要技术：</strong>Vue2 + iview4 + vuex + xlsx等</p>
       <p>在职期间主要做了：</p>
       <ul>
-        <li>依赖调整：删减了无用的库，UI组件统一，从三个（ele、iview、material），削减成iview主力 + 部分element组件，并且升级过渡iview3到ivitw4</li>
+        <li>依赖调整：删减了无用的库，UI组件统一，从三个（ele、iview、material），削减成iview主力 + 部分element组件，并且升级过渡iview3到iview4</li>
         <li>表格类页面代码高度重复，封装了一个VTable组件，集齐数据展示 + 条件查询 + 前端导出功能，大大减少了重复代码；</li>
         <li>写了个node脚本进行项目国际化批量匹配与替换，减少了开发时间重复填写占位符，再替换的时间，提升了开发效率</li>
         <li>模块太多，构建耗时太长，<a href="https://juejin.cn/post/7108255306609590286#heading-8" target="_blank">开发了webpack plugin进行模块过滤，通过配置化快速构建指定目录下的资源，提升了开发效率</a></li>
         <li>CMS拖拽表单系统，支持App动态配置页面，简单低代码的模型（卡片 + 预览 + 配置 = 页面）</li>
       </ul>
-    </ResumtContentWrap>
+    </ResumeContentWrap>
 
-    <ResumtContentWrap title="项目经历：H5营销工具" right-text="2020年12月~至今" >
+    <ResumeContentWrap title="项目经历：H5营销工具" right-text="2020年12月~至今" >
       <div class="image-list horizontal">
         <img style="width: 47%;" class="image" src="./images/h5-elephant.jpg" alt="">
         <img style="width: 47%;" class="image" src="./images/h5-discovery.png" alt="">
@@ -92,12 +92,12 @@
         <li>营销图片多，加载体验差，封装了image加载组件，营销场景下渐进加载图片，用户体验好</li>
         <li>业务埋点代码重复，封装了统一的工具库，支持api、指令方式调用，也支持异步非堵塞上传等</li>
         <li>egg渲染层注入一些全局或者业务数据，减少了渲染时间</li>
-        <li>配置webpack打包多页面，入口分离，抽离公共包;将每个页面进行分离，有效缓存
+        <li>配置webpack打包多页面，入口分离，抽离公共包；将每个页面进行分离，有效缓存
 公共包，减少白屏时间</li>
       </ul>
-    </ResumtContentWrap>
+    </ResumeContentWrap>
 
-    <ResumtContentWrap title="项目经历：升学预测系统" right-text="2019年5月~2020年12月" >
+    <ResumeContentWrap title="项目经历：升学预测系统" right-text="2019年5月~2020年12月" >
       <img src="./images/ai-shengxuebao.png" alt="">
       <p class="pragraph">这是一个多端的系统，包括pc，小程序；主要功能是提供学子进行志愿报考预测服务；</p>
       <ul>
@@ -107,17 +107,17 @@
         <li>项目内重复请求多，浪费服务器资源；通过处理懒加载或者合并请求等方式，减少了重复/无效请求</li>
         <li>处理非 safari 浏览器播放的兼容性，使用 hls.js 插件，处理不支持 HLS 协议浏览器的播放；</li>
       </ul>
-    </ResumtContentWrap>
+    </ResumeContentWrap>
 
   </div>
 </template>
 
 <script>
-import ResumtContentWrap from './resume-content-wrap.vue'
+import ResumeContentWrap from './resume-content-wrap.vue'
 
 export default {
   components: {
-    ResumtContentWrap
+    ResumeContentWrap
   },
   
   data() {
