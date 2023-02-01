@@ -25,11 +25,7 @@
       </div>
     </div>
 
-    <ResumeContentWrap title="基本介绍">
-      <p class="paragraph" style="margin: 0;">
-        本人参与了多个前端项目的设计与研发，能够独立开发<strong>网页端WEB，小程序端，移动端H5。有Vue、React、小程序的项目开发经验；</strong>性格开朗，有责任感，乐于沟通并积极沟通解决开发中遇到的问题。
-      </p>
-      <p class="paragraph"><strong>基本技能</strong></p>
+    <ResumeContentWrap title="专业技能">
       <ul>
         <li>掌握HTML/JS/CSS等常用前端基础工具；</li>
         <li>熟练掌握Vue2，运用vue-cli + vuex + router进行项目开发；</li>
@@ -93,12 +89,12 @@
       <p class="pragraph">
         <strong>工作与成就</strong>
         <ul>
-          <li>负责项目依赖重复冗余问题；通过技术栈统一+代码改造+升级，将重复多余的第三方库（vue-material、less等）移除系统，<strong>减小了构建包的体积大小（约3-500kb）</strong></li>
-          <li>负责抽象封装VTable组件；将重复的列表查询，表格操作抽象封装成公共组件，<strong>集成了表单查询、列表显示、数据导出等功能，</strong>提升了组内团队3人的开发效率；</li>
-          <li>负责了项目国际化脚本的开发；不用再手动一个个进行文本翻译；</li>
-          <li>负责了webpack plugin插件开发，结合inquirer实现本地模块过滤构建；<strong>通过配置构建，从3-5分钟等提升到30s左右；</strong></li>
-          <li>负责了问卷调查、视频发现页、App配置中心等模块的开发，期间无延期，如期上线。</li>
-          <li>参与了用户数据可视化的开发；通过echarts的饼图、折线图、沙漏图进行<strong>可视化展示；</strong></li>
+          <li>负责项目依赖重复冗余问题，<strong>减小了构建包的体积大小（约3-500kb）</strong></li>
+          <li>负责封装VTable组件，<strong>集成了查询、列表显示、导出等功能，</strong>提升了组内团队3人的开发效率；</li>
+          <li>负责项目国际化脚本的开发，<strong>实现了脚本自动化翻译；</strong></li>
+          <li>负责webpack plugin开发，结合inquirer实现命令行配置；<strong>本地构建耗时从3-5分钟等缩短到30s左右；</strong></li>
+          <li>负责问卷调查、视频发现页、App配置中心等模块的开发，期间无延期，如期上线。</li>
+          <li>参与用户数据可视化的开发；通过<strong>echarts的饼图、折线图、沙漏图进行可视化展示；</strong></li>
           <li>参与项目的日常开发、维护</li>
         </ul>
       </p>
@@ -122,8 +118,8 @@
         <strong>工作与成就</strong>
         <ul>
           <li>负责多平台app唤醒的兼容开发，减少了重复调试功能的开发成本；</li>
-          <li>负责webview jssdk的设计开发，通过约定接口命名、回调等规范，保证了ios、android逻辑交互的统一；</li>
-          <li>负责封装request操作；将native request与browser request统一结构，减少了大量重复分支代码；</li>
+          <li>负责webview jssdk的设计开发，<strong>保证了ios、android逻辑交互的统一；</strong></li>
+          <li>负责封装axios request操作；<strong>减少了大量重复分支代码；</strong></li>
           <li>负责大象扭蛋机的营销页面开发，<strong>结合tween.js缓动函数实现动画，丰富用户体验；</strong></li>
           <li>负责图片组件开发，结合阿里云进行渐进式加载，<strong>减少图片闪屏问题，丰富用户体验；</strong></li>
           <li>参与egg服务端<strong>预渲染开发</strong>，减少了客户端的渲染时间；</li>
@@ -179,6 +175,12 @@
       </p>
     </ResumeContentWrap>
 
+
+    <ResumeContentWrap title="自我介绍">
+      <p class="paragraph" style="margin: 0;">
+        本人参与了多个前端项目的设计与研发，能够独立开发<strong>网页端WEB，小程序端，移动端H5。有Vue、React、小程序的项目开发经验；</strong>性格开朗，有责任感，乐于沟通并积极沟通解决开发中遇到的问题。
+      </p>
+    </ResumeContentWrap>
   </div>
 </template>
 

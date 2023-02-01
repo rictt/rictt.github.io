@@ -78,11 +78,11 @@ export default {
     line-height: 2;
 
     strong {
-      font-size: 16pt;
+      // font-size: 16pt;
     }
   }
   strong {
-    font-size: 15pt;
+    // font-size: 15pt;
   }
   .image-list {
     display: flex;
