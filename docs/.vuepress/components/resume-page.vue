@@ -197,7 +197,7 @@ export default {
   },
   
 
-  created() {
+  mounted() {
     document.title = this.getText('吴泽伟') + '的前端简历'
   },
 
