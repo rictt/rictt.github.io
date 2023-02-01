@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="resume-wrap">
     <div id="print">
       <ResumePage />
     </div>
+    <div style="padding-bottom: 40px;"></div>
     <div class="print-btn" @click="goPrint">A4打印</div>
   </div>
 </template>
@@ -31,6 +32,17 @@ export default {
 
 </style>
 <style lang="stylus" scoped>
+.resume-wrap {
+  background-color: #f8f8f5;
+  color: #555;
+  padding: 40px 0;
+  // font-family: Tahoma, serif;
+  // font-family: "Trebuchet MS", Arial, "Lucida Grande", Verdana, Lucida, Helvetica, sans-serif;
+  // font-family: Arial, "Lucida Grande", Verdana, Lucida, Helvetica, sans-serif;
+  font-family: Lucida, Helvetica, sans-serif;
+  // font-family: Georgia;
+}
+
 @media print {
   .print-btn {
     display: none;
@@ -51,6 +63,7 @@ export default {
 #print {
   width: 210mm;
   margin: 40px auto;
+  margin-bottom: 0;
   border: 1px solid #555;
   box-sizing: border-box;
 }

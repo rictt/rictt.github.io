@@ -31,7 +31,6 @@ export default {
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px dashed #666;
-  font-family: Tahoma, serif;
   font-size: 18pt;
   line-height: 1.8;
 
@@ -45,7 +44,6 @@ export default {
 }
 
 .content-main {
-  font-family: Tahoma, serif;
   line-height: 2;
   padding-top: 10px;
 
@@ -72,7 +70,6 @@ export default {
   .box-header {
     display: flex;
     justify-content: space-between;  
-    font-family: Tahoma, serif;
     font-size: 14pt;
     color: #000;
   }
