@@ -1,6 +1,6 @@
 <template>
   <div class="resume-page-wrap">
-    <h2 class="page-title">吴泽伟的前端简历</h2>
+    <h2 class="page-title">{{ getText('吴泽伟') }}的前端简历</h2>
     <div class="resume-basic-info">
       <div class="info-item">
         <span class="info-item-label">微信：</span>
@@ -12,7 +12,7 @@
       <div class="info-item">
         <span class="info-item-label">邮箱：</span>
         <span class="info-item-value">
-          <a href="mailto:2390923149@qq.com">2390923149@qq.com</a>
+          <a href="mailto:2390923149@qq.com">{{  getText('2390923149@qq.com') }}</a>
         </span>
       </div>
       <div class="info-item">
@@ -27,7 +27,7 @@
 
     <ResumeContentWrap title="基本介绍">
       <p class="paragraph" style="margin: 0;">
-        本人参与了多个前端项目的设计与研发，能够独立开发<strong>网页端WEB，小程序端，移动端H5，混合APP。有Vue、React、小程序的项目开发经验；</strong>性格开朗，有责任感，乐于沟通并积极沟通解决开发中遇到的问题。
+        本人参与了多个前端项目的设计与研发，能够独立开发<strong>网页端WEB，小程序端，移动端H5。有Vue、React、小程序的项目开发经验；</strong>性格开朗，有责任感，乐于沟通并积极沟通解决开发中遇到的问题。
       </p>
       <p class="paragraph"><strong>基本技能</strong></p>
       <ul>
@@ -45,7 +45,7 @@
       <ul>
         <li>
           <div class="box-header">
-            <div>前端@广州领克科技有限公司（互联网/外卖电商服务）</div>
+            <div>前端@{{ getText('广州领克科技有限公司') }}（互联网/外卖电商服务）</div>
             <div>2年</div>
           </div>
           <!-- <ul>
@@ -55,7 +55,7 @@
 
         <li>
           <div class="box-header">
-            <div>前端@爱云校（互联网/在线教育服务）</div>
+            <div>前端@{{ getText('爱云校') }}（互联网/在线教育服务）</div>
             <div>0.5年</div>
           </div>
           <!-- <ul>
@@ -65,7 +65,7 @@
 
         <li>
           <div class="box-header">
-            <div>前端@广州魔芋科技有限公司（互联网/生活服务）</div>
+            <div>前端@{{ getText('广州魔芋科技有限公司') }}（互联网/生活服务）</div>
             <div>0.5年</div>
           </div>
           <!-- <ul>
@@ -189,10 +189,24 @@ export default {
   components: {
     ResumeContentWrap
   },
-  
-  data() {
-    return {
 
+  computed: {
+    isShowSensitiveInfo() {
+      return !!this.$route.query.show
+    }
+  },
+  
+
+  created() {
+    document.title = this.getText('吴泽伟') + '的前端简历'
+  },
+
+  methods: {
+    getText(text) {
+      if (this.isShowSensitiveInfo) {
+        return text
+      }
+      return 'xxx'
     }
   }
 }
