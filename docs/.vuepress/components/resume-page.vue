@@ -72,7 +72,7 @@
       </ul>
     </ResumeContentWrap>
 
-    <ResumeContentWrap title="项目：外卖配送系统" right-text="2020.12~至今" >
+    <ResumeContentWrap title="项目：超A中台系统" right-text="2020.12~至今" >
       <p class="pragraph">
         <strong>项目介绍：</strong>
         一个向在柬用户提供外卖、购物、旅游等生活服务的业务支撑系统；主要提供外卖、配送、订单、营销活动等管理；
@@ -205,10 +205,11 @@ export default {
 
   methods: {
     getText(text) {
-      if (this.isShowSensitiveInfo) {
-        return text
-      }
-      return 'xxx'
+      return text
+      // if (this.isShowSensitiveInfo) {
+      //   return text
+      // }
+      // return 'xxx'
     }
   }
 }
