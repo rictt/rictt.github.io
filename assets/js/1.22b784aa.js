@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1,5,6],{250:function(o,n){o.exports={name:1234}},251:function(o,n){o.exports={name:5678}},252:function(o,n,e){const s=e(250),c=e(251);console.log(s),console.log(c);const p=s.name+c.name;console.log(p),o.exports=p}}]);

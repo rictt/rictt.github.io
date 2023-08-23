@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{256:function(o,n){var l;const e={};console.log(null==e||null===(l=e.person)||void 0===l?void 0:l.name);var a;console.log("Hello Bob, how are you today?"),window.name=null==e||null===(a=e.person)||void 0===a?void 0:a.name}}]);
