@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>侧视效果</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // 创建场景、相机和渲染器
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // 添加灯光
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    directionalLight.position.set(-1, 2, 4);
+    scene.add(directionalLight);
+
+    // 创建平面几何体并应用纹理
+    const geometry = new THREE.PlaneGeometry(14.5, 11.7);
+    const textureLoader = new THREE.TextureLoader();
+    const texture = textureLoader.load("https://cdn.shopify.com/s/files/1/0741/5129/7333/files/exam-test.jpg");
+    const material = new THREE.MeshLambertMaterial({ map: texture });
+    const mesh = new THREE.Mesh(geometry, material);
+    mesh.position.set(0, 0, -6.25);
+    mesh.rotation.set(-Math.PI / 2, 0, 0);
+    scene.add(mesh);
+
+    // 创建棉布材质并应用于平面几何体
+    // const clothTextureLoader = new THREE.TextureLoader();
+    // const clothTexture = clothTextureLoader.load("https://threejs.org/examples/textures/cloth.jpg");
+    // clothTexture.wrapS = THREE.RepeatWrapping;
+    // clothTexture.wrapT = THREE.RepeatWrapping;
+    // clothTexture.repeat.set(4, 4);
+    // const clothMaterial = new THREE.MeshLambertMaterial({ map: clothTexture });
+    // mesh.material = clothMaterial;
+
+    // 调整相机位置和方向
+    camera.position.set(0, 3, 8);
+    camera.lookAt(mesh.position);
+
+    // 渲染场景
+    function render() {
+      requestAnimationFrame(render);
+      renderer.render(scene, camera);
+    }
+    render();
+  </script>
+</body>
+
+</html>

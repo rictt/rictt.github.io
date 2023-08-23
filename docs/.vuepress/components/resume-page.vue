@@ -27,12 +27,13 @@
 
     <ResumeContentWrap title="专业技能">
       <ul>
-        <li>掌握HTML/JS/CSS等常用前端基础工具；</li>
-        <li>熟练掌握Vue2，运用vue-cli + vuex + router进行项目开发；</li>
-        <li>熟悉React，能够运用react-router-dom、hooks、redux进行项目开发；</li>
-        <li>熟悉微信小程序原生开发；</li>
-        <li>了解Typescript，配合所用的框架进行项目开发；</li>
-        <li>了解NodeJS、浏览器插件、Electron开发</li>
+        <li>独当一面，积极主动推进各方协作，按时保质保量完成任务</li>
+        <li>熟练掌握Vue2.x/3.x、React等MVVM框架</li>
+        <li>熟练掌握ElementUI、VantUI、AntdUI等业界UI框架及周边生态使用</li>
+        <li>熟练掌握PC、H5移动端、微信小程序等类型项目开发</li>
+        <li>熟悉Canvas2D、浏览器缓存策略、Event Loop、Promise、节流防抖懒加载等</li>
+        <li>熟悉前端工程化，Webpack，能够编写Plugin，了解运行机制</li>
+        <li>熟悉NodeJS、EggJs、NestJS等后端技术</li>
       </ul>
     </ResumeContentWrap>
 
@@ -72,10 +73,10 @@
       </ul>
     </ResumeContentWrap>
 
-    <ResumeContentWrap title="项目：超A中台系统" right-text="2020.12~至今" >
+    <ResumeContentWrap title="项目：超A中台系统" right-text="2020.12~2023.07" >
       <p class="pragraph">
         <strong>项目介绍：</strong>
-        一个向在柬用户提供外卖、购物、旅游等生活服务的业务支撑系统；主要提供外卖、配送、订单、营销活动等管理；
+        一个向在柬用户提供外卖、购物等生活服务的业务支撑系统；汇聚了会员管理、外卖配送管理、业务营销管理等模块。期间由于项目涉及两三个部门之间的协作，<strong>多次主动参与需求分析、模块拆分，推进各方协作，采用TAPD、例会形式跟进，保障任务进度</strong>
       </p>
       <p class="pragraph">
         <strong>技术栈</strong>

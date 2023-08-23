@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG - Scalable Vector Graphics</title>
+  <style>
+    * { margin: 0; padding: 0; }
+    svg {
+      border: 1px solid red;
+      border-radius: 4px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <svg width="300" height="300" viewBox="0 0 300 300">
+
+    <circle cx="50" cy="50" r="50" />
+    <!-- rx和ry是定义圆角x轴和y轴的半径 -->
+    <!-- 一开始在想为啥不直接定义一个r，实现圆角；反应过来忽略了一个场景，单独定义某个轴的圆角距离 -->
+    <rect x="100" y="100" rx="5" ry="5" width="50" height="50" />
+
+    <ellipse cx="50" cy="200" rx="50" ry="75" />
+
+    <!-- 线条，需要设置开始和结束两个坐标，！！需要设置style才能看见 -->
+    <line x1="10" y1="280" x2="100" y2="280" style="stroke: #000;" />
+
+    <!-- 折线polyline -->
+    <!-- points为点集数列，不会和第一个起点汇合，所以有需要的话要手动回到起点 -->
+    <polyline points="
+      10 10, 
+      280 10, 
+      280 280, 
+      10 280, 
+      10 10" fill="none" style="stroke: #ff0000;" />
+
+    <!-- 多边形polygon -->
+    <!-- 会自动闭合 -->
+    <polygon points="
+      20 20,
+      270 20,
+      270 270,
+      20 270" fill="none" style="stroke: green;" />
+
+    <!-- 强大且常用的path，命令式绘制 -->
+    <!-- 
+      M：移动画笔
+      L：line to
+      H：Horizontal Line，举例：H 50，水平画x到50
+      V：Vertical Line
+
+      Q：二次贝塞尔曲线绘制
+      T：二次延长贝塞尔曲线
+      C：三次贝塞尔曲线Curve
+      S：三次延长贝塞尔曲线 Smooth Curve To
+      A：Elliptical Arc画弧形
+      Z：Close Path，不需要参数
+    -->
+    <path d="M10 10, H 150, V 130, L 10 100" fill="none" style="stroke: blue;" />
+
+    <path d="M150 150, H 300, V 300 z" style="fill: skyblue" />
+  </svg>
+
+  <svg width="300" height="300" viewBox="0 0 300 300">
+    <!-- 贝塞尔曲线 -->
+    <!-- Q: x1 y1 x y -->
+    <!-- x1和y1是控制点，x和y是终点，起点是M -->
+    <path d="M50 150 Q 150 200 250 150" fill="none" style="stroke: red;" />
+  </svg>
+
+  <svg width="300" height="300" viewBox="0 0 300 300">
+    <!-- 二次延长贝塞尔曲线 -->
+    <!-- T是终点，会根据终点计算另一个控制点 -->
+    <path d="M50 150 Q 150 200 250 150 T 300 0" fill="none" style="stroke: red;" />
+  </svg>
+
+  <!-- 画一条正弦曲线 -->
+  <svg width="300" height="300" viewBox="0 0 300 300">
+    <path d="M150 150 C 175 125, 200 175, 225 150" fill="none" style="stroke: red;" />
+    <path d="M150 150 S 175 125, 300 175" fill="none" style="stroke: red;" />
+    <path d="M10 100 50 100 A 20 30 0 0 1 140 100" fill="none" style="stroke: skyblue" />
+    <path d="M10 110 50 110 A 20 30 0 0 0 140 110" fill="none" style="stroke: skyblue" />
+    <path d="M10 110 50 110 A 20 30 10 0 1 140 110" fill="none" style="stroke: skyblue" />
+  </svg>
+
+  <!-- 画一个圆中圆 -->
+  <svg width="300" height="300">
+    <circle cx="50" cy="50" r="50" fill="purple"></circle>
+    <circle cx="50" cy="50" r="30" fill="#fff" fill-opacity="1"></circle>
+    <circle cx="150" cy="150" r="30" fill="#fff" style="stroke: purple; stroke-width: 10;"></circle>
+    <circle cx="50" cy="150" r="30" fill="#fff" style="stroke: purple; stroke-width: 10;" stroke-dasharray="2" ></circle>
+  </svg>
+
+  <!-- 画一个五角星 -->
+  <svg width="300" height="300">
+    <path d="M10 100 L 100 100, 20 150, 55 70, 90 150 z" style="fill: purple;"></path>
+  </svg>
+
+
+  <!-- 实现一个loading svg，根据容器的宽高，自动居中 -->
+  <div id="loadingWrap" style="display: inline-block; width: 200px; height: 200px;">
+    <svg width="100%" height="100%">
+      <circle cx="50" cy="50" r="20" fill="#fff" style="stroke: purple; stroke-width: 10px; stroke-dasharray: 2;" />
+    </svg>
+  </div>
+
+  <svg>
+    <text x="20" y="20">Hello SVG!</text>
+    <text x="10 30 50 70 90 110 130 150 170 190 210 230" y="50 90">Hello SVG 2!</text>
+    <text y="20" dy="120">Hello SVG 3!</text>
+  </svg>
+
+  <!-- defs定义一些重复的图形元素，比如复制 -->
+  <svg>
+    <defs>
+      <text id="text" style="stroke: green; font-size: 20px; font-weight: bold; letter-spacing: 2px;">复制我一下</text>
+    </defs>
+    
+    <use x="50" y="50" xlink:href="#text" />
+    <use x="50" y="100" fill="skyblue" xlink:href="#text" />
+  </svg>
+  
+  <!-- 渐变 -->
+  <svg>
+    <defs>
+      <linearGradient id="linearGradient" x1="0" y1="0" x2="100%" y2="0">
+        <stop offset="0%" stop-color="orange" />
+        <stop offset="50%" stop-color="red" />
+        <stop offset="100%" stop-color="blue" />
+      </linearGradient>
+
+      <radialGradient id="radialGradient">
+        <stop offset="0%" stop-color="orange" />
+        <stop offset="50%" stop-color="red" />
+        <stop offset="100%" stop-color="blue" />
+      </radialGradient>
+      
+      <radialGradient id="radialGradient">
+        <stop offset="0%" stop-color="orange" />
+        <stop offset="50%" stop-color="red" />
+        <stop offset="100%" stop-color="blue" />
+      </radialGradient>
+    </defs>
+
+    <line x1="0" y1="0" x2="100" y2="100" style="stroke-width: 20;" stroke="url(#linearGradient)"></line>
+    <circle cx="150" cy="50" r="50" fill="url(#linearGradient)" />
+
+
+    <circle cx="150" cy="130" r="30" fill="url(#radialGradient)" />
+  </svg>
+
+  <!-- 聚光灯效果, fx fy代表渐变的焦点 -->
+  <svg>
+    <defs>
+      <radialGradient id="radialGradient-light" fx="50%" fy="0%">
+        <!-- <stop offset="0%" stop-color="white"></stop>
+        <stop offset="100%" stop-color="gray"></stop> -->
+        <stop offset="0%" stop-color="rgb(255, 255, 0)"></stop>
+        <stop offset="100%" stop-color="rgb(255, 0, 0)"></stop>
+      </radialGradient>
+    </defs>
+    <circle cx="50" cy="50" r="50" fill="url(#radialGradient-light)"></circle>
+
+    <text x="50" y="120" fill="url(#radialGradient-light)">聚光灯文本渐变</text>
+    <text x="100" y="50" fill="none" font-size="30" stroke="url(#radialGradient-light)">聚光灯文本渐变</text>
+  </svg>
+
+  <!-- 裁剪和蒙层 -->
+  <svg>
+    <defs>
+      <clipPath id="clipPath">
+        <path d="M50 50, A 20 20 0 1 1 90 50, A 20 20 0 0 1 50 50" fill="none" stroke="none"></path>
+      </clipPath>
+      <clipPath id="loveClipPath">
+        <path d="
+          M150 75
+          A20 30 0 0 1 190 75
+          A20 30 0 0 1 230 75
+          Q230 100 190 140
+          Q150 100 150 75
+        " fill="none" stroke="red"></path>
+      </clipPath>
+
+      <mask id="mask">
+        <path d="
+          M150 75
+          A20 30 0 0 1 190 75
+          A20 30 0 0 1 230 75
+          Q230 100 190 140
+          Q150 100 150 75
+        " fill="#fff" fill-opacity="1"></path>
+      </mask>
+    </defs>
+
+    <circle cx="150" cy="50" r="40" fill="purple"></circle>
+    <circle cx="50" cy="50" r="40" fill="purple" clip-path="url(#clipPath)"></circle>
+
+    <!-- <rect x="150" y="0" width="200" height="200" clip-path="url(#loveClipPath)" fill="red" /> -->
+    <rect x="150" y="0" width="200" height="200" mask="url(#mask)" fill="red" />
+    <rect x="10" y="75" width="70" height="70" fill="red"></rect>
+  </svg>
+
+  <script>
+    const loadingWrap = document.querySelector('#loadingWrap')
+    const rect = loadingWrap.getBoundingClientRect()
+    const svgEl = loadingWrap.children[0]
+    const circleEl = svgEl.children[0]
+
+    circleEl.setAttribute('cx', rect.width / 2)
+    circleEl.setAttribute('cy', rect.height / 2)
+  </script>
+</body>
+</html>

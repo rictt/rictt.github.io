@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>侧视效果</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas class="webgl"></canvas>
+  <script src="https://cdn.bootcdn.net/ajax/libs/dat-gui/0.7.9/dat.gui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+
+    const gui = new dat.GUI()
+
+    // 创建场景
+    const scene = new THREE.Scene();
+
+    // 创建相机
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight);
+    camera.position.z = 3;
+    scene.add(camera);
+
+    // 创建灯光
+    const light = new THREE.AmbientLight(0xffffff, 1);
+    scene.add(light);
+
+    // const geometry = new THREE.BoxGeometry(1, 1, 1);
+
+    // 创建平面几何体
+    const geometry = new THREE.PlaneGeometry(14.5, 11.7);
+    const texture = new THREE.TextureLoader().load('https://cdn.shopify.com/s/files/1/0741/5129/7333/files/exam-test.jpg');
+    console.log(texture)
+    const material = new THREE.MeshBasicMaterial({ map: texture });
+    const mesh = new THREE.Mesh(geometry, material);
+    // mesh.rotation.y = -Math.PI / 2;
+    mesh.position.x = -1.25;
+    mesh.position.y = -0.25;
+    mesh.position.z = -9;
+    mesh.rotation.y = Math.PI / 10;
+    gui.add(mesh.position, 'x', -10, 10, 0.01)
+    gui.add(mesh.position, 'y', -10, 10, 0.01)
+    gui.add(mesh.position, 'z', -10, 10, 0.01)
+    scene.add(mesh);
+
+    // 创建渲染器
+    const renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector("canvas.webgl")
+    });
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    // 渲染场景
+    function animate() {
+      renderer.render(scene, camera);
+	    window.requestAnimationFrame(animate)
+    }
+    animate();
+  </script>
+
+  <script>
+
+    // const scene = new THREE.Scene()
+
+    // // Object
+    // const geometry = new THREE.BoxGeometry(1, 1, 1)
+    // const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    // const mesh = new THREE.Mesh(geometry, material)
+    // scene.add(mesh)
+
+    // // Sizes
+    // const sizes = {
+    //   width: 800,
+    //   height: 600
+    // }
+
+    // // Camera
+    // const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
+    // camera.position.z = 3
+    // scene.add(camera)
+
+    // // Renderer
+    // const renderer = new THREE.WebGLRenderer({
+    //   canvas: document.querySelector('canvas.webgl')
+    // })
+    // renderer.setSize(sizes.width, sizes.height)
+    // renderer.render(scene, camera)
+  </script>
+</body>
+
+</html>

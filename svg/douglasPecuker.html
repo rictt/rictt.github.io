@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>抽稀算法</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    // 道格拉斯-普克：抽稀算法 https://juejin.cn/post/6974595531234508813#heading-2
+    function DouglasPeucker(points, epsilon) {
+      let maxH = 0;
+      let index = 0;
+      let end = points.length;
+      for (let i = 1; i < end - 1; i++) {
+        let h = getDistance(points[i], points[0], points[end - 1])
+        if (h > maxH) {
+          maxH = h
+          index = i
+        }
+      }
+      let result = []
+      if (maxH > epsilon) {
+        const leftPoints = []
+        const rightPoints = []
+        for (let i = 0; i < end; i++) {
+          if (i <= index) {
+            leftPoints.push(points[i])
+            if (i === index) {
+              rightPoints.push(points[i])
+            }
+          } else {
+            rightPoints.push(points[i])
+          }
+        }
+
+        leftResult = []
+        rightResult = []
+        leftResult = DouglasPeucker(leftPoints, epsilon)
+        rightResult = DouglasPeucker(rightPoints, epsilon)
+
+        rightResult.shift()
+        leftResult.push(...rightResult)
+        result = leftResult
+      } else {
+        result.push(points[0])
+        result.push(points[end - 1])
+      }
+      return result
+    }
+
+    function getDistance(p1, p2, p3) {
+      const distance = (p1, p2) => {
+        const x = p1[0] - p2[0]
+        const y = p1[1] - p2[1]
+        return Math.sqrt(x * x + y * y)
+      }
+
+      // 海伦公示，求三角形面积
+      const helen = (CB, CA, AB) => {
+        const p = (CB + CA + AB) / 2
+        const s = Math.sqrt(p * (p - CB) * (p - CA) * (p - AB))
+        return s;
+      }
+
+      const AB = distance(p2, p3)
+      const CB = distance(p1, p2)
+      const CA = distance(p1, p3)
+
+      const S = helen(CB, CA, AB)
+      // 三角形的高 = 2 * 三角形面积 / 三角形的底
+      const H = 2 * S / AB
+      return H;
+    }
+
+    const paths = [
+      [1, 1], [2, 2], [3, 4], [4, 1], [5, 0], [6, 3], [7, 5], [8, 2], [9, 1], [10, 6]
+      // [10, 10], [20, 20], [30, 40], [40, 10], [50, 0], [60, 30], [70, 50], [80, 20], [90, 10], [100, 60]
+    ]
+
+    console.log("原始坐标：", paths)
+
+    const paths2 = DouglasPeucker(paths, 1)
+    console.log("抽稀坐标：", paths2)
+  </script>
+</body>
+
+</html>
